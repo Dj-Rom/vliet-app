@@ -1,0 +1,62 @@
+<section class="load-calculator-section">
+<div class="load-calculator-section-input-block">
+  <label>
+    Truck Type:
+    <select [(ngModel)]="selectedType" (change)="updatePalletType()">
+      <option *ngFor="let t of ['TIR','SOLO','TRAILER']" [value]="t">{{ t }}</option>
+    </select>
+  </label>
+
+  <label>
+    Pallet Type:
+    <select [(ngModel)]="palletType">
+      <option *ngFor="let key of palletKeys()" [value]="key">{{ key }}</option>
+    </select>
+  </label>
+
+  <label>
+    Count:
+    <input type="number" [(ngModel)]="count" min="1" placeholder="Write count..." >
+  </label>
+</div>
+
+  <div class="buttons">
+    <button id="btn-add" (click)="load()">Load</button>
+    <button id="btn-del" (click)="unload()">Unload</button>
+    <button id="btn-reset" (click)="resetAll()">Reset All</button>
+  </div>
+
+  <h3>{{ selectedType }} Status</h3>
+  <p>Used: {{ totalLoad().usedCC | number:'1.2-2' }} CC / Capacity: {{ totalLoad().capacityCC }} CC</p>
+  <p>Fullness: {{ totalLoad().percentFull | number:'1.1-1' }}%</p>
+
+  <table class="pallet-table">
+    <thead>
+    <tr>
+      <th>Pallet</th>
+      <th>Loaded</th>
+      <th>Can Load</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let key of palletKeys()">
+      <td>{{ key }}</td>
+      <td>{{ truckTypes.getTruck(selectedType).currentLoaded[key] }}</td>
+      <td>{{ truckTypes.getTruck(selectedType).canLoad[key] }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <p >***SIZE***</p>
+  <span>
+    ISO-  L:120, W:120
+  </span>
+  <br>
+  <span>
+    FIN-  L:120, W:100
+  </span>
+  <br>
+  <span>
+    EURO- L:120,W:80
+  </span>
+</section>

@@ -1,0 +1,42 @@
+<div class="auth-main">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>
+      Company:
+      <input formControlName="company" type="text" placeholder="Write company">
+      <div *ngIf="form.get('company')?.touched && form.get('company')?.invalid" class="error">
+        Company is required.
+      </div>
+    </label>
+
+    <label>
+      Address:
+      <input formControlName="address" type="text" placeholder="Write address">
+      <div *ngIf="form.get('address')?.touched && form.get('address')?.invalid" class="error">
+        Address is required.
+      </div>
+    </label>
+
+    <label>
+      GPS:
+      <input formControlName="gps" type="text" placeholder="Write GPS for example: 22.222222, 22.222222">
+      <div *ngIf="form.get('gps')?.touched && form.get('gps')?.invalid" class="error">
+        GPS must be in format: lat, lng
+      </div>
+    </label>
+
+    <label>
+      Notes:
+      <input formControlName="notes" type="text" placeholder="Write notes">
+    </label>
+
+    <label>
+      Google link:
+      <input formControlName="link" type="text" placeholder="Write link for Google Maps">
+      <div *ngIf="form.get('link')?.touched && form.get('link')?.invalid" class="error">
+        Must be a valid Google Maps link.
+      </div>
+    </label>
+
+    <button type="submit" class="auth-btn">SAVE</button>
+  </form>
+</div>

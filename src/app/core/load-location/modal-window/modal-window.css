@@ -1,0 +1,81 @@
+.modal-window{
+  .btnSave{
+    position: relative;
+    background-color: green;
+    color: white;
+    height: 32px;
+  }
+  max-width: 566px;
+  height: 200px;
+  margin: 5px;
+  padding: 1rem;
+  background: #1c69af;
+  opacity: .8;
+  color: var(--ligth-color);
+  border-radius: 10px;
+  display: grid
+;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: space-around;
+  border: 2px solid white;
+  table{
+    width: 100%;
+    display: flex;;
+    justify-content: center;
+    flex-direction: column;
+    align-content: space-between;
+    align-items: stretch;
+    tr{
+
+    }
+    td,th{
+      border: 1px solid white;
+      min-width: 88px;
+      width: 88px;
+      input{
+      width: 100%;
+
+    }
+    }
+    .note{
+      width: 150px
+    }
+
+  }
+}
+    .btn{
+      border-radius: 6px;
+      position: relative;
+      left: calc(100% - 64px - 20px);
+      width: 64px;
+      height: 32px;
+      background: indianred;
+    }
+@media screen and (max-width: 640px) {
+
+  .backgroundForMobileModal{
+    background-color: black;
+    opacity: .9;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+    .modal-window {
+      z-index: 2;
+
+  table {
+
+      td,th {
+        border: 1px solid white;
+        font-size: 10px;
+        min-width: 11vw;
+
+      }
+    }
+  }
+
+}

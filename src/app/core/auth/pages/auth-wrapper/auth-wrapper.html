@@ -1,0 +1,14 @@
+<section class="auth-container">
+  <div class="auth-main">
+    @if (currentUrl === '/auth/login') {
+      <app-login></app-login>
+    } @else {
+      <app-registration></app-registration>
+    }
+
+    <div class="auth-welcome-message">
+    <img src="/assets/svg/logo.svg" width="300">
+      <h2 class="h2-blue" >WELCOME</h2>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,51 @@
+<span>Already have an account?  </span><a [routerLink]="['/login']" class="auth-link">  Log in</a>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="auth-form">
+  <label>
+    Registration Code:
+    <input formControlName="code" type="password" placeholder="Enter invite code" />
+  </label>
+  <div class="error" *ngIf="form.get('code')?.invalid && form.get('code')?.touched">
+    <small *ngIf="form.get('code')?.errors?.['required']">Code is required</small>
+    <small *ngIf="form.get('code')?.errors?.['minlength']">Minimum 4 characters</small>
+  </div>
+
+  <label>
+    Email:
+    <input formControlName="username" type="email" placeholder="Write your email" />
+  </label>
+  <div class="error" *ngIf="form.get('username')?.invalid && form.get('username')?.touched">
+    <small *ngIf="form.get('username')?.errors?.['required']">Email is required</small>
+    <small *ngIf="form.get('username')?.errors?.['email']">Invalid email format</small>
+  </div>
+
+  <label>
+    Password:
+    <input
+      formControlName="password"
+      [type]="isShow ? 'text' : 'password'"
+      placeholder="Write your password"
+    />
+    <button class="auth-show-password" type="button" (click)="setShow()">
+      @if (isShow) {
+        <img src="/assets/svg/unshow.svg" width="25" height="25" alt="Hide password" />
+      } @else {
+        <img src="/assets/svg/show.svg" width="25" height="25" alt="Show password" />
+      }
+    </button>
+  </label>
+  <div class="error" *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+    <small *ngIf="form.get('password')?.errors?.['required']">Password is required</small>
+    <small *ngIf="form.get('password')?.errors?.['minlength']">Minimum 6 characters</small>
+    <small *ngIf="form.get('password')?.errors?.['pattern']">
+      Must contain 1 uppercase letter, 1 number, and 1 special character
+    </small>
+  </div>
+
+  <div *ngIf="message" class="info-message">{{ message }}</div>
+
+  <button type="submit" class="auth-btn" [disabled]="loading">
+    <span *ngIf="!loading">Register</span>
+    <span *ngIf="loading">⏳ Processing...</span>
+  </button>
+</form>

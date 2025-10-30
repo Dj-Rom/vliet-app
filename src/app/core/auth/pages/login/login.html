@@ -1,0 +1,39 @@
+  <a [routerLink]="['/registration']" class="auth-link">Sign up</a>
+<div class="app-login">
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- Email -->
+    <label>
+      Email:
+      <input formControlName="email" type="email" placeholder="Write email">
+    </label>
+    <div [style.color]="'red'" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+      <small *ngIf="form.get('email')?.errors?.['required']">Email is required</small>
+      <small *ngIf="form.get('email')?.errors?.['email']">Invalid email format</small>
+    </div>
+
+    <!-- Password -->
+    <label>
+      Password:
+      <input formControlName="password" [type]="isShow ? 'text' : 'password'" placeholder="Write password">
+      <button class="auth-show-password" type="button" (click)="setShow()">
+        <img *ngIf="isShow" src="/assets/svg/unshow.svg" width="25" height="25" alt="Hide password icon">
+        <img *ngIf="!isShow" src="/assets/svg/show.svg" width="25" height="25" alt="Show password icon">
+      </button>
+
+    </label>
+    <div [style.color]="'red'" *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+      <small *ngIf="form.get('password')?.errors?.['required']">Password is required</small>
+      <small *ngIf="form.get('password')?.errors?.['minlength']">Minimum 6 characters</small>
+      <small *ngIf="form.get('password')?.errors?.['pattern']">
+        Password must contain at least 1 uppercase letter, 1 number, and 1 special character
+      </small>
+    </div>
+    <br>
+<span [style.color]="'red'">{{errorMessage}}</span>
+    <button type="submit" class="auth-btn" [disabled]="loading">
+      {{ loading ? 'Loading...' : 'Enter' }}
+    </button>
+
+  </form>
+</div>

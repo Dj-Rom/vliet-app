@@ -1,0 +1,125 @@
+
+form{
+  display: flex;
+  flex-direction: column;
+}
+a{
+  color: var(--ligth-color);
+
+}
+span{color:var(--ligth-color)}
+input{
+  margin-top: 8px;
+  color: var(--ligth-color);
+  background: var(--dark-color);
+  width: 400px;
+  height: 44px;
+  gap: 10px;
+  opacity: 1;
+  padding-top: 12px;
+  padding-right: 20px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+  border-radius: 2px;
+  border-width: 1px;
+
+}
+label{
+  margin-top: 16px;
+  color: var(--ligth-color, white);
+  width: 400px;
+}
+.auth-btn{
+  margin-top: 16px;
+  height: 44px;
+  gap: 10px;
+  width: 400px;
+  padding-top: 12px;
+  padding-right: 20px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+  border-radius: 2px;
+  border-width: 1px;
+
+}
+.error{
+  color: red;
+}
+.auth-btn {
+
+  --ripple-duration: 700ms;
+  position: relative;
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  user-select: none;
+  color: #e6faff;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 14px 36px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: transform 200ms cubic-bezier(.2,.9,.3,1), box-shadow 200ms, background 200ms;
+  overflow: hidden;
+  outline: none;
+}
+
+.auth-btn:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.15);
+}
+
+.auth-btn:active {
+  transform: translateY(0);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* ripple effect (same as before) */
+.auth-btn .ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0.9;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+}
+.auth-show-password{
+  background: none;
+  color: #5F646D;
+  border: none;
+  position: absolute;
+  transform: translate(-34px, 17px);
+cursor: pointer;
+}
+@media screen and (max-width: 640px) {
+  .app-login{
+    display: flex
+  ;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  form{
+
+    align-items: center;
+
+  }
+  label{
+    width: 70vw;
+  }
+  input, .auth-btn{
+    width: 70vw;
+  }
+  a{
+
+
+  }
+  .auth-show-password{
+    transform: translate(70vw, -35px);
+  }
+}
