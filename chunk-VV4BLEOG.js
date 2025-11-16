@@ -1,0 +1,1 @@
+import{b as a}from"./chunk-YOGY5GTQ.js";import"./chunk-H3MELBZE.js";import"./chunk-VZBZQOOD.js";import"./chunk-3RDMHP4V.js";import"./chunk-TG2TCFBS.js";import"./chunk-YQITL2K6.js";import"./chunk-R2RMLZGX.js";export{a as AddNewVehicle};
